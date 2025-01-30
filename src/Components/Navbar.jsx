@@ -21,6 +21,7 @@ const Navbar = () => {
   const [hasResults, setHasResults] = useState(null);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 720); 
   const [showBox2, setShowBox2] = useState(true);
+  const [showScroll2, setShowScroll2] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth > 768);
@@ -77,6 +78,8 @@ const Navbar = () => {
       // Update state
       setInstructions(meal.strInstructions || "Not available");
       setHasResults(true);
+      setShowBox2(true); // Show Box2 when a new search is made
+      setShowScroll2(false);
         
        
       }else {
@@ -97,7 +100,8 @@ const Navbar = () => {
     }
   };
   const handleRecipeClick = () => {
-    setShowBox2(false); // Hide Box2 when the "Recipe" button is clicked
+    setShowBox2(false); // Hide Box2
+    setShowScroll2(true); // Show Scroll2// Hide Box2 when the "Recipe" button is clicked
   };
 
   return (
